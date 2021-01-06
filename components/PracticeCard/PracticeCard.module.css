@@ -1,0 +1,20 @@
+.practiceCard {
+  padding: 15px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+}
+
+.minsContainer {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border: 5px solid #FFFFFF;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.mins { 
+  font-size: 10px;
+  padding-top: 8px;
+}
