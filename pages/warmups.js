@@ -8,27 +8,27 @@ export default function Home() {
   return (
     <Layout>
       <Row>
-        <Col className="mb-2" sm={6}>
+        <Col className="mb-2" sm={6} lg={4}>
           <PracticeCard
             title="Quick Death"
             mins={2}
             bpm={200} />
         </Col>
-        <Col className="mb-2" sm={6}>
+        <Col className="mb-2" sm={6} lg={4}>
           <PracticeCard
             title="Pre-show Ritual"
             mins={10}
             bpm={175}
             timesCompleted={4} />
         </Col>
-        <Col className="mb-2" sm={6}>
+        <Col className="mb-2" sm={6} lg={4}>
           <PracticeCard
             title="A Clean Fifteen"
             mins={15}
             bpm={120}
             timesCompleted={5} />
         </Col>
-        <Col className="mb-2" sm={6}>
+        <Col className="mb-2" sm={6} lg={4}>
           <PracticeCard
             title="Quick &amp; Thirty"
             mins={30}
