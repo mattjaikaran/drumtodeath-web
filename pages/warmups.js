@@ -1,10 +1,10 @@
 import { Row, Col } from 'react-bootstrap'
-import Header from '../components/Header'
 import Layout from '../components/Layout'
 import PracticeCard from '../components/PracticeCard'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+const Warmups = () => {
+
   return (
     <Layout>
       <Row>
@@ -38,3 +38,5 @@ export default function Home() {
     </Layout>
   )
 }
+
+export default Warmups
