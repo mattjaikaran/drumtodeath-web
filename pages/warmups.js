@@ -32,7 +32,7 @@ const Warmups = () => {
               title="Pre-show Ritual"
               mins={10}
               bpm={175}
-              timesCompleted={4} />
+              timescompleted={4} />
           </Link>
         </Col>
         <Col className="mb-2" sm={6} lg={4}>
@@ -42,7 +42,7 @@ const Warmups = () => {
               title="A Clean Fifteen"
               mins={15}
               bpm={120}
-              timesCompleted={5} />
+              timescompleted={5} />
           </Link>
         </Col>
         <Col className="mb-2" sm={6} lg={4}>
