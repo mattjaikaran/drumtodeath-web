@@ -1,7 +1,7 @@
 import { Card, Col, Row } from 'react-bootstrap/'
 import style from './PracticeCard.module.css'
 
-const PracticeCard = ({ title, mins, bpm, timesCompleted }) => {
+const PracticeCard = ({ title, mins, bpm, timescompleted }) => {
   return (
     <Card className={style.practiceCard}>
       <Row>
@@ -24,10 +24,10 @@ const PracticeCard = ({ title, mins, bpm, timesCompleted }) => {
             <small>{bpm} BPM</small>
           </p>
         </Col>
-        {timesCompleted && (
+        {timescompleted && (
           <Col className="text-center" xs={6}>
           <div className="time">
-            {timesCompleted}x
+            {timescompleted}x
           </div>
         </Col>
         )}
