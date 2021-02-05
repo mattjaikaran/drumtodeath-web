@@ -1,7 +1,5 @@
 
-
-
-const ExerciseLayout = () => {
+const ExerciseLayout = ({ children }) => {
   return (
     <div>
       {children}

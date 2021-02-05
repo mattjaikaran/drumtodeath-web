@@ -29,3 +29,11 @@ h6 {
 .overpass {
   font-family: 'Overpass Mono', monospace;
 }
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.circleTimer {
+  width: 100% !important;
+}
