@@ -2,7 +2,7 @@ import Header from '../Header'
 import { Container } from 'react-bootstrap'
 import style from './Layout.module.css'
 
-const Layout = ({children}) => {
+const PrivateLayout = ({ children }) => {
   return (
     <div>
       <Header />
@@ -13,4 +13,4 @@ const Layout = ({children}) => {
   )
 }
 
-export default Layout
+export default PrivateLayout

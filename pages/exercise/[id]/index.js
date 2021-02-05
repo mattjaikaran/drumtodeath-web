@@ -1,24 +1,37 @@
-import { useState } from 'react'
+import { server } from '../../../config'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Layout from '../components/Layout'
+import { useState } from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import Countdown from 'react-countdown'
+import Metronome from '../../../components/Metronome'
+import ExerciseLayout from '../../../components/ExerciseLayout'
 
-const Exercise = (props) => {
+const Exercise = ({ exercise }) => {
   const router = useRouter()
+  const { id } = router.query
   const [key, setKey] = useState(0)
   const [start, setStart] = useState(false)
   const [pause, setPause] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [complete, setComplete] = useState(false)
-  const handlePause = () => {
+  console.log(exercise)
+
+  const handlePause = (e) => {
+    e.preventDefault()
     setIsPlaying(false)
     setPause(true)
   }
-  const handleResume = () => {
+  const handleResume = (e) => {
+    e.preventDefault()
     setIsPlaying(true)
     setPause(false)
+  }
+  const handleStart = (e) => {
+    e.preventDefault()
+    setStart(true)
+    setIsPlaying(true)
   }
   
   const renderTimer = () => {
@@ -30,7 +43,7 @@ const Exercise = (props) => {
 
     return (
       <CountdownCircleTimer
-        className="w-100"
+        className="circleTimer"
         isPlaying={isPlaying}
         key={key}
         size={295}
@@ -45,46 +58,70 @@ const Exercise = (props) => {
       </CountdownCircleTimer>
     )
   }
-
-  const handleStart = () => {
-    setStart(true)
-    setIsPlaying(true)
-  }
-
   return (
-    <Layout>      
+    <ExerciseLayout>
       <div className="text-center">
         <p className="overpass">
-          <small>{router.query.title}</small>
+          <small>{exercise.title}</small>
         </p>
-        <h5>175 BPM</h5>
-        <div className="my-5">
-          {renderTimer()}
-        </div>
+        <h5>{exercise.bpm} BPM</h5>
+        <Link href="/">Go Back</Link>
+        <Row className="text-center my-5">
+          <Col lg={6} className="mb-5">
+            {renderTimer()}
+          </Col>
+          <Col lg={6}>
+            <Metronome />
+          </Col>
+        </Row>
         {complete ? 
           <p>Completed!</p> : (
           <>
             {!start && (
-              <Button block onClick={handleStart}>
+              <Button onClick={handleStart}>
                 Start
               </Button>
             )}
             {pause &&
-              <Button block onClick={handleResume}>
+              <Button onClick={handleResume}>
                 Resume
               </Button>
             }
             
             {!pause && start &&
-              <Button block disabled={pause} onClick={handlePause}>
+              <Button disabled={pause} onClick={handlePause}>
                 Pause
             </Button>
             }
           </>
         )}
       </div>
-    </Layout>
+    </ExerciseLayout>
   )
+}
+
+export const getStaticProps = async (context) => {
+  const res = await fetch(`${server}/api/exercises/${context.params.id}`)
+  const exercise = await res.json()
+  return {
+    props: {
+      exercise
+    }
+  }
+}
+
+export const getStaticPaths = async () => {
+  const res = await fetch(`${server}/api/exercises`)
+  const exercises = await res.json()
+  const ids = exercises.map(exercise => exercise.id)
+  const paths = ids.map(id => ({ 
+    params: { id: id.toString() } 
+  }))
+
+  return {
+    paths,
+    fallback: false
+  }
 }
 
 export default Exercise

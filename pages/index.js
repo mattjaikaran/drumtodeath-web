@@ -1,15 +1,24 @@
-import { useEffect } from 'react'
-import { Row, Col } from 'react-bootstrap'
-import Header from '../components/Header'
+import { server } from '../config'
 import Layout from '../components/Layout'
-import PracticeCard from '../components/PracticeCard'
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
+import ExerciseList from '../components/ExerciseList'
 
-export default function Home() {  
+export default function Home({ exercises }) {  
   return (
     <Layout>
       <h1>Welcome to Drum To Death</h1>
+      <ExerciseList exercises={exercises} />      
     </Layout>
   )
+}
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${server}/api/exercises`)
+  const exercises = await res.json()
+  return {
+    props: {
+      exercises
+    }
+  }
 }
