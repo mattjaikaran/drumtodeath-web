@@ -7,7 +7,7 @@ import PracticeCard from '../components/PracticeCard'
 export default function Intensity() {
   return (
     <Layout>
-      <Row>
+      {/* <Row>
         <Col className="mb-2" sm={6}>
           <PracticeCard
             title="Up, Up &amp; Away"
@@ -34,7 +34,7 @@ export default function Intensity() {
             bpm={200}
             timesCompleted={4} />
         </Col>
-      </Row>
+      </Row> */}
     </Layout>
   )
 }

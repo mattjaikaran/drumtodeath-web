@@ -3,10 +3,10 @@ import { Card, Col, Row } from 'react-bootstrap/'
 import style from './PracticeCard.module.css'
 
 const PracticeCard = ({ exercise }) => {
-  const { id, title, timeLength, bpm, timesCompleted } = exercise
+  const { title, timeLength, bpm, timesCompleted } = exercise
   
   return (
-    <Link href="/exercise/[id]" as={`/exercise/${id}`}>
+    <Link href="/exercise/[id]" as={`/exercise/${exercise.id}`}>
       <Card className={style.practiceCard}>
         <Row>
           <Col className="pl-1" xs={6}>

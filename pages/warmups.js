@@ -15,7 +15,7 @@ const Warmups = () => {
 
   return (
     <Layout>
-      <Row>
+      {/* <Row>
         <Col className="mb-2" sm={6} lg={4}>
           <Link href={"/exercise?id=1&title=Quick Death"} passHref>
             <PracticeCardComponent
@@ -54,7 +54,7 @@ const Warmups = () => {
               bpm={140} />
           </Link>
         </Col>
-      </Row>
+      </Row> */}
     </Layout>
   )
 }
