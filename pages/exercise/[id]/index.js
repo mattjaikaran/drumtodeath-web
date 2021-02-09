@@ -1,5 +1,6 @@
 import { server } from '../../../config'
 import Link from 'next/link'
+import fetch from 'isomorphic-unfetch'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
@@ -101,12 +102,16 @@ const Exercise = ({ exercise }) => {
 }
 
 export const getStaticProps = async (context) => {
-  const res = await fetch(`${server}/api/exercises/${context.params.id}`)
-  const exercise = await res.json()
-  return {
-    props: {
-      exercise
+  try {
+    const res = await fetch(`${server}/api/exercises/${context.params.id}`)
+    const exercise = await res.json()
+    return {
+      props: {
+        exercise
+      }
     }
+  } catch (err) {
+    console.log(err)
   }
 }
 
