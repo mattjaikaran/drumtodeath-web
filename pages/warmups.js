@@ -15,6 +15,7 @@ const Warmups = () => {
 
   return (
     <Layout>
+      <h2>Warmups</h2>
       {/* <Row>
         <Col className="mb-2" sm={6} lg={4}>
           <Link href={"/exercise?id=1&title=Quick Death"} passHref>

@@ -1,9 +1,10 @@
+import { Container } from 'react-bootstrap'
 
 const ExerciseLayout = ({ children }) => {
   return (
-    <div>
+    <Container>
       {children}
-    </div>
+    </Container>
   )
 }
 

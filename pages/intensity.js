@@ -7,6 +7,7 @@ import PracticeCard from '../components/PracticeCard'
 export default function Intensity() {
   return (
     <Layout>
+      <h2>Intensity</h2>
       {/* <Row>
         <Col className="mb-2" sm={6}>
           <PracticeCard

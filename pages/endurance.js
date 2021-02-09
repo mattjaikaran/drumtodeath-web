@@ -13,6 +13,7 @@ export default function Endurance({ exercises }) {
   }
   return (
     <Layout>
+      <h2>Endurance</h2>
       <Row>
         {/* {renderCards()} */}
       </Row>
@@ -21,26 +22,26 @@ export default function Endurance({ exercises }) {
 }
 
 
-export const getStaticProps = async () => {
-  const res = await fetch(`${server}/api/exercises`)
-  const exercises = await res.json()
-  return {
-    props: {
-      exercises
-    }
-  }
-}
+// export const getStaticProps = async () => {
+//   const res = await fetch(`${server}/api/exercises`)
+//   const exercises = await res.json()
+//   return {
+//     props: {
+//       exercises
+//     }
+//   }
+// }
 
-export const getStaticPaths = async () => {
-  const res = await fetch(`${server}/api/exercises`)
-  const exercises = await res.json()
-  const ids = exercises.map(exercise => exercise.id)
-  const paths = ids.map(id => ({ 
-    params: { id: id.toString() } 
-  }))
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`${server}/api/exercises`)
+//   const exercises = await res.json()
+//   const ids = exercises.map(exercise => exercise.id)
+//   const paths = ids.map(id => ({ 
+//     params: { id: id.toString() } 
+//   }))
 
-  return {
-    paths,
-    fallback: false
-  }
-}
+//   return {
+//     paths,
+//     fallback: false
+//   }
+// }
