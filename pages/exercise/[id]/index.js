@@ -1,6 +1,7 @@
 import { server } from '../../../config'
 import Link from 'next/link'
-import fetch from 'isomorphic-unfetch'
+import dynamic from 'next/dynamic'
+import useSwr from 'swr'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
@@ -116,7 +117,16 @@ export const getStaticProps = async (context) => {
 }
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${server}/api/exercises`)
+  const setUserAgent = dynamic(() => {
+    return window.navigator.userAgent, { ssr: false }
+  })
+  const res = await fetch(`${server}/api/exercises`, {
+    method: "GET",
+    headers: {
+      "User-Agent": setUserAgent,
+      Accept: "application/json; charset=UTF-8"
+    }
+  })
   const exercises = await res.json()
   const ids = exercises.map(exercise => exercise.id)
   const paths = ids.map(id => ({ 
