@@ -61,5 +61,5 @@ export const exercises = [
     timeLength: 15,
     bpm: 200,
     timesCompleted: 0
-  },
+  }
 ]
