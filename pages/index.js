@@ -13,7 +13,18 @@ export default function Home({ exercises }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${server}/api/exercises`)
+  let userAgent = ''
+  if (window !== undefined) {
+    userAgent = window.navigator.userAgent
+  }
+  const res = await fetch(`${server}/api/exercises`, {
+    method: "GET",
+    headers: {
+      // update with your user-agent
+      "User-Agent": userAgent, 
+      Accept: "application/json; charset=UTF-8",
+    },
+  })
   const exercises = await res.json()
   return {
     props: {
