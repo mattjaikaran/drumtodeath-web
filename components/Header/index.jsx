@@ -8,6 +8,9 @@ import style from './Header.module.css'
 export function ActiveLink({ children, href }) {
   const router = useRouter()
   const style = {
+    // display: 'inline',
+    padding: '10px 25px',
+    flexDirection: 'initial',
     textDecoration: router.pathname !== href ? 'none' : 'underline'
   }
 
@@ -38,6 +41,7 @@ const Header = () => {
             <ActiveLink href="/warmups">Warm-ups</ActiveLink>
             <ActiveLink href="/endurance">Endurance</ActiveLink>
             <ActiveLink href="/intensity">Intensity</ActiveLink>
+            <ActiveLink href="/settings">Settings</ActiveLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
