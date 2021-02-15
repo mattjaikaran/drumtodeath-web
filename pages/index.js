@@ -20,7 +20,6 @@ export const getStaticProps = async () => {
   const res = await fetch(`${server}/api/exercises`, {
     method: "GET",
     headers: {
-      // update with your user-agent
       "User-Agent": userAgent, 
       Accept: "application/json; charset=UTF-8",
     },
