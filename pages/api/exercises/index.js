@@ -19,6 +19,12 @@ function runMiddleware(req, res, fn) {
 }
 
 export default async function handler(req, res) {
-  await runMiddleware(req, res, cors)
-  return res.status(200).json(exercises)
+  let error = ''
+  try {
+    await runMiddleware(req, res, cors)
+    return res.status(200).json(exercises)
+  } catch (err) {
+    error = err.toString()
+    return res.status(400).json(error)
+  }
 }
