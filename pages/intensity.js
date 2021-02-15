@@ -1,41 +1,26 @@
-import { Row, Col } from 'react-bootstrap'
-import Header from '../components/Header'
+import { server } from '../config'
 import Layout from '../components/Layout'
-import PracticeCard from '../components/PracticeCard'
-// import styles from '../styles/Home.module.css'
+import ExerciseList from '../components/ExerciseList'
 
-export default function Intensity() {
+
+const Intensity = ({ filteredExercises }) => {
   return (
     <Layout>
       <h2>Intensity</h2>
-      {/* <Row>
-        <Col className="mb-2" sm={6}>
-          <PracticeCard
-            title="Up, Up &amp; Away"
-            mins={45}
-            bpm="150 - 250" />
-        </Col>
-        <Col className="mb-2" sm={6}>
-          <PracticeCard
-            title="Forearm Burn"
-            mins={15}
-            bpm={190} />
-        </Col>
-        <Col className="mb-2" sm={6}>
-          <PracticeCard
-            title="Slow Death"
-            mins={15}
-            bpm={200}
-            timesCompleted={4} />
-        </Col>
-        <Col className="mb-2" sm={6}>
-          <PracticeCard
-            title="Quick Death"
-            mins={2}
-            bpm={200}
-            timesCompleted={4} />
-        </Col>
-      </Row> */}
+      <ExerciseList exercises={filteredExercises} />      
     </Layout>
   )
 }
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${server}/api/exercises`)
+  const exercises = await res.json()
+  const filteredExercises = exercises.filter(e => parseInt(e.id) > 6 || parseInt(e.id) === 1)
+  return {
+    props: {
+      filteredExercises
+    }
+  }
+}
+
+export default Intensity

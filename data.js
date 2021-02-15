@@ -4,7 +4,7 @@ export const exercises = [
     title: 'Quick Death',
     timeLength: 2,
     bpm: 200,
-    timesCompleted: 0
+    timesCompleted: 4
   },
   {
     id: '2',
@@ -60,6 +60,6 @@ export const exercises = [
     title: 'Slow Death',
     timeLength: 15,
     bpm: 200,
-    timesCompleted: 0
+    timesCompleted: 4
   }
 ]

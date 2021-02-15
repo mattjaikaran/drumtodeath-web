@@ -1,47 +1,27 @@
 import { server } from '../config'
-
-import { Row, Col } from 'react-bootstrap'
-import Header from '../components/Header'
 import Layout from '../components/Layout'
-import PracticeCard from '../components/PracticeCard'
-import styles from '../styles/Home.module.css'
+import ExerciseList from '../components/ExerciseList'
 
-export default function Endurance({ exercises }) {
-  console.log(exercises)
-  const renderCards = () => {
-    // return exercises.filter(e)
-  }
+
+const Endurance = ({ filteredExercises }) => {
+console.log(filteredExercises)
   return (
     <Layout>
       <h2>Endurance</h2>
-      <Row>
-        {/* {renderCards()} */}
-      </Row>
+      <ExerciseList exercises={filteredExercises} />      
     </Layout>
   )
 }
 
+export const getStaticProps = async () => {
+  const res = await fetch(`${server}/api/exercises`)
+  const exercises = await res.json()
+  const filteredExercises = exercises.filter(e => e.id === '5' || e.id === '6')
+  return {
+    props: {
+      filteredExercises
+    }
+  }
+}
 
-// export const getStaticProps = async () => {
-//   const res = await fetch(`${server}/api/exercises`)
-//   const exercises = await res.json()
-//   return {
-//     props: {
-//       exercises
-//     }
-//   }
-// }
-
-// export const getStaticPaths = async () => {
-//   const res = await fetch(`${server}/api/exercises`)
-//   const exercises = await res.json()
-//   const ids = exercises.map(exercise => exercise.id)
-//   const paths = ids.map(id => ({ 
-//     params: { id: id.toString() } 
-//   }))
-
-//   return {
-//     paths,
-//     fallback: false
-//   }
-// }
+export default Endurance

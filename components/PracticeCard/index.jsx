@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Card, Col, Row } from 'react-bootstrap/'
+import { Card, Col, Row, Badge } from 'react-bootstrap/'
 import style from './PracticeCard.module.css'
 
 const PracticeCard = ({ exercise }) => {
@@ -22,7 +22,7 @@ const PracticeCard = ({ exercise }) => {
             </div>
           </Col>
         </Row>
-        <Row className="mt-3">
+        <Row className="mt-4">
           <Col className="pl-4" xs={6}>
             <p className="overpass">
               <small>{typeof bpm === 'number' ? bpm : bpm.join('-') } BPM</small>
@@ -31,7 +31,9 @@ const PracticeCard = ({ exercise }) => {
           {timesCompleted > 0 && (
             <Col className="text-center" xs={6}>
             <div className="time">
-              {timesCompleted}x
+              <Badge pill className="py-2 px-3" variant="info">
+                &#10003; {' '}{timesCompleted}x
+              </Badge>
             </div>
           </Col>
           )}
