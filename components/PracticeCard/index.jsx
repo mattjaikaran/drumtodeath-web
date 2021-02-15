@@ -25,7 +25,7 @@ const PracticeCard = ({ exercise }) => {
         <Row className="mt-3">
           <Col className="pl-4" xs={6}>
             <p className="overpass">
-              <small>{bpm} BPM</small>
+              <small>{typeof bpm === 'number' ? bpm : bpm.join('-') } BPM</small>
             </p>
           </Col>
           {timesCompleted > 0 && (

@@ -66,7 +66,9 @@ const Exercise = ({ exercise }) => {
         <p className="overpass">
           <small>{exercise.title}</small>
         </p>
-        <h5>{exercise.bpm} BPM</h5>
+        <h5>
+          {typeof exercise.bpm === 'number' ? exercise.bpm : exercise.bpm.join('-')} BPM
+        </h5>
         <Link href="/">Go Back</Link>
         <Row className="text-center my-5">
           <Col lg={6} className="mb-5">
