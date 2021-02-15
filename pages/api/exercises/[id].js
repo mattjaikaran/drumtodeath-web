@@ -21,8 +21,8 @@ export default async function handler({ query: { id }}, res) {
   try {
     await runMiddleware(req, res, cors)
     const filtered = exercises.filter(exercise => exercise.id === id)
-    if(filtered.length) return res.status(200).json(filtered[0])
+    if(filtered.length) return await res.status(200).json(filtered[0])
   } catch (err) {
-   return res.status(404).json({ message: `Exercise with the ID ${id} not found` }) 
+    return await res.status(404).json({ message: `Exercise with the ID ${id} not found` }) 
   }
 }

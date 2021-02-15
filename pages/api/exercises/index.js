@@ -22,9 +22,9 @@ export default async function handler(req, res) {
   let error = ''
   try {
     await runMiddleware(req, res, cors)
-    return res.status(200).json(exercises)
+    return await res.status(200).json(exercises)
   } catch (err) {
     error = err.toString()
-    return res.status(400).json(error)
+    return await res.status(400).json(error)
   }
 }
