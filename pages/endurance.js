@@ -16,7 +16,7 @@ console.log(filteredExercises)
 export const getStaticProps = async () => {
   const res = await fetch(`${server}/api/exercises`)
   const exercises = await res.json()
-  const filteredExercises = exercises.filter(e => e.id === '5' || e.id === '6')
+  const filteredExercises = exercises.data.filter(e => e.id === '5' || e.id === '6')
   return {
     props: {
       filteredExercises

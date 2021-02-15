@@ -7,20 +7,16 @@ export default function Home({ exercises }) {
   return (
     <Layout>
       <h1>Welcome to Drum To Death</h1>
-      <ExerciseList exercises={exercises} />      
+      <ExerciseList exercises={exercises.data} />      
     </Layout>
   )
 }
 
 export const getStaticProps = async () => {
-  let userAgent = ''
-  if (window !== undefined) {
-    userAgent = window.navigator.userAgent
-  }
   const res = await fetch(`${server}/api/exercises`, {
     method: "GET",
     headers: {
-      "User-Agent": userAgent, 
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36", 
       Accept: "application/json; charset=UTF-8",
     },
   })

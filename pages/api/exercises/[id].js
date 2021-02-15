@@ -2,7 +2,7 @@ import { exercises } from '../../../data'
 import Cors from 'cors'
 
 const cors = Cors({
-  methods: ['GET', 'HEAD'],
+  methods: ['GET', 'POST', 'HEAD'],
 })
 
 function runMiddleware(req, res, fn) {
