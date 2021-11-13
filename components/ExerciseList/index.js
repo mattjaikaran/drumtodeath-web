@@ -9,8 +9,7 @@ const ExerciseList = ({ exercises }) => {
           <Col 
             key={exercise.id}
             md={6} lg={4}>
-            <PracticeCard  
-              exercise={exercise} />
+            <PracticeCard exercise={exercise} />
           </Col>
         ))}
       </Row>

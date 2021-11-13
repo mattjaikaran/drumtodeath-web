@@ -3,7 +3,7 @@ import { Card, Col, Row, Badge } from 'react-bootstrap/'
 import style from './PracticeCard.module.css'
 
 const PracticeCard = ({ exercise }) => {
-  const { title, timeLength, bpm, timesCompleted } = exercise
+  const { title, length, bpm } = exercise
   
   return (
     <Link href="/exercise/[id]" as={`/exercise/${exercise.id}`}>
@@ -15,8 +15,8 @@ const PracticeCard = ({ exercise }) => {
           <Col className="text-center" xs={6}>
             <div className={style.minsContainer}>
               <p className={style.mins}>
-                {timeLength}
-                <br/>
+                {length}
+                <br />
                 mins
               </p>
             </div>
@@ -25,18 +25,18 @@ const PracticeCard = ({ exercise }) => {
         <Row className="mt-4">
           <Col className="pl-4" xs={6}>
             <p className="overpass">
-              <small>{typeof bpm === 'number' ? bpm : bpm.join('-') } BPM</small>
+              <small>{bpm.includes(',') ? bpm.split(', ').join('-') : bpm} BPM</small>
             </p>
           </Col>
-          {timesCompleted > 0 && (
+          {/* {timesCompleted > 0 && (
             <Col className="text-center" xs={6}>
-            <div className="time">
-              <Badge pill className="py-2 px-3" variant="info">
-                &#10003; {' '}{timesCompleted}x
-              </Badge>
-            </div>
-          </Col>
-          )}
+              <div className="time">
+                <Badge pill className="py-2 px-3" variant="info">
+                  &#10003; {timesCompleted}x
+                </Badge>
+              </div>
+            </Col>
+          )} */}
         </Row>
       </Card>
     </Link>

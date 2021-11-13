@@ -9,16 +9,22 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "cors": "^2.8.5",
+    "file-loader": "^6.2.0",
     "next": "10.0.4",
+    "next-compose": "^0.0.2",
     "next-images": "^1.6.2",
+    "node-metronome": "^0.0.12",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-countdown": "^2.3.1",
     "react-countdown-circle-timer": "^2.3.11",
     "react-dom": "17.0.1",
     "react-metronome-hook": "^1.0.5",
-    "swr": "^0.4.2"
+    "react-pro-metronome": "^1.1.0",
+    "swr": "^0.4.2",
+    "use-sound": "^2.0.1"
   }
 }

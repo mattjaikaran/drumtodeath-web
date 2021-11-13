@@ -13,9 +13,9 @@ const Warmups = ({ filteredExercises }) => {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${server}/api/exercises`)
+  const res = await fetch(`${server}/exercises`)
   const exercises = await res.json()
-  const filteredExercises = exercises.data.filter(e => parseInt(e.id) < 5)
+  const filteredExercises = exercises.filter(e => parseInt(e.id) < 5)
   return {
     props: {
       filteredExercises
