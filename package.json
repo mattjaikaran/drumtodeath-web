@@ -1,30 +1,43 @@
 {
-  "name": "drum-web-app",
+  "name": "dtd-react",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
-    "axios": "^0.21.1",
-    "bootstrap": "^4.5.3",
-    "cors": "^2.8.5",
-    "file-loader": "^6.2.0",
-    "next": "10.0.4",
-    "next-compose": "^0.0.2",
-    "next-images": "^1.6.2",
-    "node-metronome": "^0.0.12",
-    "react": "17.0.1",
-    "react-bootstrap": "^1.4.0",
-    "react-countdown": "^2.3.1",
-    "react-countdown-circle-timer": "^2.3.11",
-    "react-dom": "17.0.1",
-    "react-metronome-hook": "^1.0.5",
-    "react-pro-metronome": "^1.1.0",
-    "swr": "^0.4.2",
-    "use-sound": "^2.0.1"
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "bootstrap": "5.1.3",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.0.2",
+    "react-countdown": "^2.3.2",
+    "react-countdown-circle-timer": "^2.5.4",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
