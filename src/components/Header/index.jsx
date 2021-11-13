@@ -56,7 +56,7 @@ const Header = () => {
             <CustomLink to="/warmups">Warm-ups</CustomLink>
             <CustomLink to="/endurance">Endurance</CustomLink>
             <CustomLink to="/intensity">Intensity</CustomLink>
-            <CustomLink to="/settings">Settings</CustomLink>
+            {/* <CustomLink to="/settings">Settings</CustomLink> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
