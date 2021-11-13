@@ -1,0 +1,40 @@
+html,
+body {
+  padding: 0;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  background-color: #E5E8E8 !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 300;
+}
+
+.overpass {
+  font-family: 'Overpass Mono', monospace;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.circleTimer {
+  width: 100% !important;
+  height: auto;
+}
